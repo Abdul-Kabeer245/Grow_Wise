@@ -1,0 +1,312 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+    width: 100%;
+    /* overflow-x: hidden; */
+    
+}
+
+
+.header{
+    position: relative;
+    width: 100%;
+    height: 606px;
+    z-index: 0; 
+    background-image:
+    linear-gradient(rgba(94, 173, 66, 0.15), rgba(94, 173, 66, 0.15)),
+    url('../images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.header-content {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:white ;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 85px;
+}
+
+.header-content h2 {
+    
+    margin: 0;
+    font-size: 50px;
+}
+.menu {
+    /* height: 300px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 30;
+}
+.menu h1 {
+    margin: 5px;
+    font-size: 60px;
+}
+
+.menu h3 {
+    margin: 5px;
+    font-size: 25px;
+}
+.mainmenu {
+    display: flex;
+    justify-content: space-evenly;
+    /* height: 600px;  */
+    background-color: white; 
+    margin-top: -50px;
+
+}
+
+.menu1{    
+    background-image:linear-gradient(rgba(36, 74, 20, 0.5), rgba(36, 74, 20, 0.5)),
+    url('../images/Diseasaes_identification.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover; 
+    width: 300px;
+    height: 300px;
+    margin: 50px; 
+    position: relative; 
+    z-index: 0;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+
+}
+ .menu2{    
+    background-image:linear-gradient(rgba(36, 74, 20, 0.5), rgba(36, 74, 20, 0.5)),
+    url('../images/cropInfrmation.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover; 
+    width: 300px;
+    height: 300px;
+    margin: 50px; 
+    position: relative; 
+    z-index: 0;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+
+} 
+.menu3 {
+    background-image:linear-gradient(rgba(95, 173, 66, 0.5), rgba(95, 173, 66, 0.5)),
+    url('../images/Croprecomendation.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover; 
+    width: 300px;
+    height: 300px;
+    margin: 50px; 
+    position: relative; 
+    z-index: 0;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    
+}
+.menu1 h3, .menu2 h3, .menu3 h3 {
+    position: absolute;
+    top: 0;
+    margin: auto 0;
+    width: 100%;
+    height: 55px;
+    font-size: 20px;
+    line-height: 50px; 
+    font-family: 'Poppins';
+    background-color: rgb(54,109,32,.5);
+    color: white;
+    text-align: center;
+}
+
+.menu1 p, .menu2 p, .menu3 p {
+    position: absolute; 
+    top: 20%; 
+    font-family:'Poppins';
+    font-size: 14px;
+    color: white; 
+    text-align: center;
+    padding: 10px; 
+}
+.line hr {
+    width: 80%;
+    height: 2px;
+    margin-left: 140px; 
+    /* margin: auto; */
+    background-color: black;
+}
+.FAQs {
+    text-align: center;
+    margin: 30px auto; /* Center the content horizontally */
+    /* max-width: 80%; Cover 60% of the page */
+
+    
+}
+
+.FAQs h2 {
+    text-align: center;
+    font-size: 50px;
+    margin: 10px;
+}
+.FAQs h3{
+    font-size: 20px;
+}
+
+.faq-container{
+display: flex;
+justify-content: center;
+flex-direction: column;
+}
+.hr-line{
+  width: 60%;
+  margin: auto;
+  
+}
+/* Style the buttons that are used to open and close the faq-page body */
+.faq-page {
+    /* background-color: #eee; */
+    color: #444;
+    cursor: pointer;
+    padding: 30px 20px;
+    width: 80%;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin: auto;
+}
+.faq-body{
+    margin: auto;
+    /* text-align: center; */
+   width: 50%; 
+   padding: auto;
+   
+}
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.faq-page:hover {
+    background-color: #F9F9F9;
+}
+/* Style the faq-page panel. Note: hidden by default */
+.faq-body {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+}
+.faq-page:after {
+    content: '\02795';
+    /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+.active:after {
+    content: "\2796";
+    /* Unicode character for "minus" sign (-) */
+}
+
+@media (max-width: 1080px){
+    .header-content h1 { 
+        font-size: 65px;
+
+    }
+    .header-content h2 { 
+        font-size: 35px;
+
+    }
+    .menu1, .menu2, .menu3{
+        margin: 25px;
+
+    }
+}
+  @media (max-width: 980px){
+
+  }
+  @media (max-width: 780px){
+    .header-content { 
+        padding: 0;
+        top: 40%;
+    }
+    .menu1 h3, .menu2 h3, .menu3 h3{
+        font-size: 25px;
+
+    }
+    .header-content h1 { 
+        font-size: 55px;
+    }
+    .header-content h2 { 
+        font-size: 25px;
+    }
+
+    .mainenu-content p{
+    padding: 0;
+    font-size: 16px;
+    
+    }
+    }
+  
+  @media (max-width: 420px){
+
+    .header-content h1 { 
+        font-size: 35px;
+    }
+    .header-content h2 { 
+        font-size: 15px;
+
+    }
+    .mainmenu{
+        display: block;
+       margin-left: 20px;
+        height: auto;
+        margin-top: 20px;
+    }
+    .line hr{
+        margin-left: 35px;
+    }
+    .faq-container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        }
+    .faq-one h1, .faq-two h1,.faq-three h1,.faq-four h1{
+        margin-left: 5px;
+
+
+    }
+    .faq-one h1, .faq-two h1,.faq-three h1,.faq-four h1{
+        margin-right: 5px;
+
+
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
