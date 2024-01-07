@@ -1,116 +1,253 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Grow Wise</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-        <!-- <script src="/Assets/scripts/navbar.js"></script> -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" type="text/css" href="Assets/styles/style.css">
-        <script src="Assets/scripts/component/navbar.js"></script>
-        <script src="Assets/scripts/component/footer.js"></script>
-        <script src="Assets/scripts/script.js"></script>
-        <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
-    </head>
-    <body>
-    
-        <navbar-component></navbar-component>
-        <div class="header">
-            <!-- <img src="Assets/Images/background.jpg" alt="Background Image"> -->
-            <div class="header-content">
-                <h1>Grow Wise</h1>
-                <h2>An AI partner for your crops</h2>
+{% extends 'layout.html' %}
+{% block title %}
+    Grow Wise
+{% endblock %}
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href=" {{ url_for ('static', filename = 'Assets/styles/style.css')}}">
+{% endblock %}
+
+{%block content %}
+<section class="swiper carousel">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide slide" style="background: url({{ url_for('static', filename = 'Assets/images/slider-img/slider-img-1.jpg') }}) no-repeat; ">
+        </div>
+        <div class="swiper-slide slide" style="background: url({{ url_for('static', filename = 'Assets/images/slider-img/slider-img-2.jpg') }}) no-repeat;">
+        </div>
+        <div class="swiper-slide slide" style="background: url({{ url_for('static', filename = 'Assets/images/slider-img/slider-img-3.jpg') }}) no-repeat;">
+        </div>
+    </div>
+    <div class="swiper-pagination"></div>
+</section>
+
+<!-- Services Section -->
+<section class="services container">
+    <h1 class="heading"><span>Our Services</span></h1>
+    <div class="row">
+        <div class="col">
+            <div class="card" style="background-image: url({{ url_for('static', filename = 'Assets/images/card-img/card-img-1.jpg')}});">
+                <div class="card-content">
+                    <h2 class="card-title">Plant recommendation </h2>
+                    <p class="card-body">Accurately identify plant diseases from your images and suggest effective
+                        treatments.</p>
+                    <a href="#" class="button">Get Recommendation</a>
+                </div>
             </div>
         </div>
-        <div class="menu">
-            <h3>What we do</h3>
-            <h1>Services</h1>
-        </div>
-        <div class="mainmenu">
-            <div class="menu1">
-                <!-- <img src="Assets\Images\Diseasaes_identification.jpg" alt="Background Image"> -->
-                <h3>Disease Identification</h3>
-                <p>Accurately identify plant 
-                    diseases from your images and
-                     suggest effective treatments.</p>
-    
-            </div>
-            <div class="menu2">
-                <!-- <img src="Assets\Images\cropInfrmation.jfif" alt="Background Image"> -->
-    
-                <h3>Plant Information
-                </h3>
-                <p>Access plant growth conditions, disease info, and prevention methods.</p>
-    
-            </div>
-            <div class="menu3">
-                <!-- <img src="Assets\Images\Croprecomendation.jfif" alt="Background Image"> -->
-                <h3>Crop Recommender</h3>
-                <p>Input your soil and environmental data to receive personalized crop suggestions.</p>
+        <div class="col">
+            <div class="card" style="background-image: url({{ url_for('static', filename = 'Assets/images/card-img/card-img-2.png')}});">
+                <div class="card-content">
+                    <h2 class="card-title">Information Search</h2>
+                    <p class="card-body">Access plant growth conditions, disease info, and prevention methods.</p>
+                    <a href="#" class="button">Search Information</a>
+                </div>
             </div>
         </div>
-        <div class="line">
-            <hr>
+        <div class="col">
+            <div class="card" style="background-image: url({{ url_for('static', filename = 'Assets/images/card-img/card-img-3.jpg')}});">
+                <div class="card-content">
+                    <h2 class="card-title">Disease Identifier </h2>
+                    <p class="card-body">Input your soil and environmental data to receive personalized crop
+                        suggestions.</p>
+                    <a href="#" class="button">identify Disease</a>
+                </div>
+            </div>
         </div>
-        <div class="FAQs">
-            <h3>Need help?</h3>
-            <h2>Frequently Asked Questions</h2>
-                <section class="faq-container">
-                    <div class="faq-one">
-                        <!-- faq question -->
-                        <h1 class="faq-page">What is Grow Wise?</h1>
-                        <!-- faq answer -->
-                        <div class="faq-body">
-                            <p>
-                            Grow Wise is an agricultural companion that combines the power of AI with a user-friendly interface to assist farmers in disease identification, crop recommendation, and smart farming practices.
-                            </p>
+    </div>
+</section>
+
+<!-- Tutorial Section -->
+<section class="tutorial container">
+    <h1 class="heading"><span>Tutorial</span></h1>
+    <div class="row">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/x77ROC-mQiM?si=lebw9lVlET76fqd6"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen style="border-radius: 1em;"></iframe>
+    </div>
+</section>
+
+<!-- Testimonial Section -->
+<section class="testimonials">
+    <h1 class="heading"><span>What our clients say about us</span></h1>
+    <div class="container">
+        <div class="testimonials-content">
+            <div class="swiper testimonials-slider testimonials-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide testimonials-item">
+                        <div class="info">
+                            <img src="{{ url_for('static', filename = 'Assets/images/testi-img/testi-img-1.jpg')}}" alt="profile photo">
+                            <div class="text-box">
+                                <h3 class="name">Ali Ahmed</h3>
+                                <span class="job">Farmer</span>
+                            </div>
+                        </div>
+                        <p>As a farmer, this platform has been a game-changer. The plant recommendations are
+                            spot-on, and the disease identifier saved my crops. </p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
                         </div>
                     </div>
-                    <hr class="hr-line">
-                    <div class="faq-two">
-                        <!-- faq question -->
-                        <h1 class="faq-page">How does Grow Wise identify crop diseases?</h1>
-                        <!-- faq answer -->
-                        <div class="faq-body">
-                            <p>We utilize advanced image processing and machine learning algorithms to analyze images of crop leaves. The system identifies diseases by examining patterns and symptoms in these images.
-                            </p>
+                    <div class="swiper-slide testimonials-item">
+                        <div class="info">
+                            <img src="{{ url_for('static', filename = 'Assets/images/testi-img/testi-img-2.jpg')}}" alt="profile photo">
+                            <div class="text-box">
+                                <h3 class="name">Farhan Khan</h3>
+                                <span class="job">Agronomist</span>
+                            </div>
+                        </div>
+                        <p>In my line of work, accurate information is crucial. This service not only provides
+                            detailed plant information but also makes the search process seamless. A valuable tool
+                            for agronomists.</p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
                         </div>
                     </div>
-                    <hr class="hr-line">
-                    <div class="faq-three">
-                        <!-- faq question -->
-                        <h1 class="faq-page">Can I use Grow Wise for multiple crops?</h1>
-                        <!-- faq answer -->
-                        <div class="faq-body">
-                            <p>Absolutely! Grow Wise supports a variety of crops, including cotton, corn, wheat, rice, and soybeans. You can access disease identification and crop recommendations for a wide range of crops.
-                            </p>
+                    <div class="swiper-slide testimonials-item">
+                        <div class="info">
+                            <img src="{{ url_for('static', filename = 'Assets/images/testi-img/testi-img-3.jpg')}}" alt="profile photo">
+                            <div class="text-box">
+                                <h3 class="name">Sara Rehman</h3>
+                                <span class="job">Environmental Scientist</span>
+                            </div>
+                        </div>
+                        <p>The disease identifier is a lifesaver for my research. This platform has become an
+                            essential tool in my work as an
+                            environmental scientist.</p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
                         </div>
                     </div>
-                    <hr class="hr-line">
-                    <div class="faq-three">
-                        <!-- faq question -->
-                        <h1 class="faq-page">What are the benefits of using Grow Wise?</h1>
-                        <!-- faq answer -->
-                        <div class="faq-body">
-                            <p>By using Grow Wise, you can achieve more accurate disease identification, receive personalized crop recommendations, and access valuable information on pests, diseases, and treatments. It's all about improving your farming outcomes.
-                            </p>
+                    <div class="swiper-slide testimonials-item">
+                        <div class="info">
+                            <img src="{{ url_for('static', filename = 'Assets/images/testi-img/testi-img-4.jpg')}}" alt="profile photo">
+                            <div class="text-box">
+                                <h3 class="name">Hassan Ali</h3>
+                                <span class="job">Horticulturist</span>
+                            </div>
+                        </div>
+                        <p>Impressed with the variety of plant recommendations. As a horticulturist, I appreciate
+                            the attention to detail. The platform has become an integral part of my work.</p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
                         </div>
                     </div>
-                    <hr class="hr-line">
-                    <div class="faq-three">
-                        <!-- faq question -->
-                        <h1 class="faq-page">Is Grow Wise easy to use?</h1>
-                        <!-- faq answer -->
-                        <div class="faq-body">
-                            <p>Yes, we've designed our platform with user-friendliness in mind. Just upload an image, and the system does the rest. No need for advanced technical skills.
-                            </p>
+                    <div class="swiper-slide testimonials-item">
+                        <div class="info">
+                            <img src="{{ url_for('static', filename = 'Assets/images/testi-img/testi-img-5.jpg')}}" alt="profile photo">
+                            <div class="text-box">
+                                <h3 class="name">Aisha Malik</h3>
+                                <span class="job">Gardener</span>
+                            </div>
+                        </div>
+                        <p>Being a gardener, I rely on accurate plant info. This website not only educates but also
+                            simplifies the process. A must-visit for anyone passionate about gardening!</p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
                         </div>
                     </div>
-                </section>
-                <script src="Assets/scripts/script.js"></script>
-        <footer-component></footer-component>
-    </body>
-    </html>
+                </div>
+            </div>
+            <div class="swiper-pagination testimonials-pagination"></div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faqs container">
+    <h1 class="heading"><span>FAQs</span></h1>
+    <div class="faq-wrapper">
+        <div class="faq">
+            <div class="question">
+                <h3>What is Grow Wise?</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" fill=white stroke=#6a3a1d stroke-width="7" stroke-linecap="round" />
+                </svg>
+
+            </div>
+            <div class="answer">
+                <p>Grow Wise is an agricultural companion that combines the power of AI with a
+                    user-friendly interface to assist farmers in disease identification, crop recommendation, and
+                    smart
+                    farming practices.</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question">
+                <h3>How does Grow Wise identify crop diseases?</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" fill=white stroke=#6a3a1d stroke-width="7" stroke-linecap="round" />
+                </svg>
+
+            </div>
+            <div class="answer">
+                <p>We utilize advanced image processing and machine learning algorithms to analyze images of crop
+                    leaves. The system identifies diseases by examining patterns and symptoms in these images.</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question">
+                <h3>Can I use Grow Wise for multiple crops?</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" fill=white stroke=#6a3a1d stroke-width="7" stroke-linecap="round" />
+                </svg>
+
+            </div>
+            <div class="answer">
+                <p>Absolutely! Grow Wise supports a variety of crops, including cotton, corn, wheat, rice, and
+                    soybeans.
+                    You can access disease identification and crop recommendations for a wide range of crops.</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question">
+                <h3>What are the benefits of using Grow Wise?</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" fill=white stroke=#6a3a1d stroke-width="7" stroke-linecap="round" />
+                </svg>
+
+            </div>
+            <div class="answer">
+                <p>By using Grow Wise, you can achieve more accurate disease identification, receive personalized
+                    crop
+                    recommendations, and access valuable information on pests, diseases, and treatments. It's all
+                    about
+                    improving your farming outcomes.</p>
+            </div>
+        </div>
+        <div class="faq">
+            <div class="question">
+                <h3>Is Grow Wise easy to use?</h3>
+                <svg width="15" height="10" viewBox="0 0 42 25">
+                    <path d="M3 3L21 21L39 3" fill=white stroke=#6a3a1d stroke-width="7" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div class="answer">
+                <p>Yes, we've designed our platform with user-friendliness in mind. Just upload an image, and the
+                    system
+                    does the rest. No need for advanced technical skills.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

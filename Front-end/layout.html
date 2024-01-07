@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="icon" href="{{ url_for ('static', filename =  'Assets/images/favicon.png')}}" type="image/x-icon">
+    {% block head %}
+
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src=" {{ url_for ('static', filename =  'Assets/images/logo.png')}}" alt="logo">
+        </div>
+        <label class="hamburger" id="header-toggle" for="menu-toggle">
+            <input type="checkbox" id="menu-toggle">
+            <svg viewBox="0 0 32 32">
+                <path class="line line-top-bottom"
+                    d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22">
+                </path>
+                <path class="line" d="M7 16 27 16"></path>
+            </svg>
+        </label>
+        <nav class="nav" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item"> <a class="nav__link active" href="#">Home</a> </li>
+                <li class="nav__item dropdown" data-dropdown>
+                    <a class="nav__link" href="#" data-dropdown-button>Services <i
+                            class='bx bx-chevron-down dropdown__icon'></i></a>
+                    <div class="dropdown-content">
+                        <a href="#">Disease Identifier</a>
+                        <a href="#">Crop Recommender</a>
+                        <a href="#">Plant Information</a>
+                    </div>
+                </li>
+                <li class="nav__item"><a class="nav__link" href="#">About Us</a></li>
+                <li class="nav__item"><a class="nav__link" href="#">Contact Us</a></li>
+                <li class="nav__item"><a class="nav__link" href="#">FAQs</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block content %}
+    {% endblock %}
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col"><img src="{{ url_for ('static', filename =  'Assets/images/logo.png')}}" alt="logo"></div>
+                <div class="footer-col">
+                    <h4>GrowWise</h4>
+                    <ul>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                        <li><a href="#">contact us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>get help</h4>
+                    <ul>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">terms & agreements</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span>Copyright © 2023 GrowWise.com | All Rights Reserved.</span>
+    </footer>
+    <style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Custom Styling */
+
+header {
+  background-color: #ffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.5em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  width: 6.25em;
+  cursor: pointer;
+  margin-left: 1em;
+}
+
+.hamburger {
+  cursor: pointer;
+  display: none;
+  margin-right: 2em;
+}
+
+.hamburger input {
+  display: none;
+}
+
+.hamburger svg {
+  height: 2em;
+  transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+  fill: none;
+  stroke: #6a3a1d;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+  stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked + svg {
+  transform: rotate(-45deg);
+}
+
+.hamburger input:checked + svg .line-top-bottom {
+  stroke-dasharray: 20 300;
+  stroke-dashoffset: -32.42;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  margin-inline: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 3em;
+  align-items: end;
+}
+
+nav a {
+  color: #6a3a1d;
+  text-decoration: none;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+nav > ul > li > a.active,
+nav a:hover,
+.dropdown.active > a {
+  color: #8cb53d;
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 2.3rem);
+  background-color: #af856a;
+  padding: 0.75rem;
+  border-radius: 0px 15px 15px 15px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdown.active > a + .dropdown-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown.active > .dropdown-content > a {
+  color: #fff;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown.active > .dropdown-content > a:hover {
+  color: #baf64b;
+}
+
+.show {
+  left: 0;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 1048px) {
+  .logo {
+    width: 5em;
+  }
+
+  nav {
+    margin-inline-end: 2em;
+  }
+
+  .dropdown-content {
+    top: calc(100% + 1.8rem);
+  }
+}
+
+@media (max-width: 850px) {
+  .logo {
+    width: 4em;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  nav {
+    display: flex;
+    margin: 0;
+    position: fixed;
+    background: #ffff;
+    top: 60px;
+    right: -100%;
+    width: 100vw;
+    min-height: 100vh;
+    align-items: flex-start;
+    justify-content: center;
+    outline: 2px solid rgba(0, 0, 0, 0.3);
+    padding-block: 2em;
+    transition: right 0.5s ease-in-out;
+    z-index: 1;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+  }
+
+  .dropdown {
+    text-align: center;
+  }
+
+  .dropdown-content {
+    position: absolute;
+    padding: 1.25rem 1.25rem;
+    border-radius: 5px;
+    pointer-events: none;
+  }
+
+  .dropdown.active > a + .dropdown-content {
+    position: static;
+    margin-top: 1em;
+  }
+}
+
+/* Footer */
+
+.container {
+  max-width: 1170px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul {
+  list-style: none;
+}
+
+.footer {
+  position: absolute;
+  inset: auto 0 0;
+  background-color: #24262b;
+  padding: 70px 0;
+}
+
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer-col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #baf64b;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 8px;
+}
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover {
+  color: #6a3a1d;
+  background-color: #ffffff;
+}
+
+.footer span {
+  position: absolute;
+  inset: auto 0 0;
+  text-align: center;
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.footer-col:first-child {
+  width: 175px;
+  margin-right: 3em;
+}
+
+/*responsive*/
+@media (max-width: 767px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+
+  .footer-col:first-child {
+    order: 4;
+    margin-right: 0;
+  }
+}
+@media (max-width: 574px) {
+  .footer-col:first-child {
+    display: none;
+  }
+
+  .footer-col {
+    width: 100%;
+  }
+}
+
+    </style>
+<script>
+    document, addEventListener("click", e => {
+    const isDropdownButton = e.target.matches("[data-dropdown-button]")
+    if (!isDropdownButton && e.target.closest('[data-dropdown]') != null) return
+
+    let currentDropdown
+    if (isDropdownButton) {
+        currentDropdown = e.target.closest('[data-dropdown]')
+        currentDropdown.classList.toggle('active')
+    }
+
+    document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
+        if (dropdown === currentDropdown) return
+        dropdown.classList.remove('active')
+    })
+})
+
+
+// Hamburger Menu
+document.querySelector('#menu-toggle').addEventListener('change', function () {
+    if (this.checked) {
+        document.querySelector('#nav-menu').style.right = '0';
+    } else {
+        document.querySelector('#nav-menu').style.right = '-100%';
+    }
+});
+
+
+</script>
+</body>
+
+</html>
