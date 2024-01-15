@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
-    
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" type="text/css"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="icon" href="{{ url_for ('static', filename =  'Assets/images/favicon.png')}}" type="image/x-icon">
@@ -29,19 +28,19 @@
         </label>
         <nav class="nav" id="nav-menu">
             <ul class="nav__list">
-                <li class="nav__item"> <a class="nav__link active" href="#">Home</a> </li>
+                <li class="nav__item"> <a class="nav__link active" href="{{ url_for('index') }}">Home</a> </li>
                 <li class="nav__item dropdown" data-dropdown>
                     <a class="nav__link" href="#" data-dropdown-button>Services <i
                             class='bx bx-chevron-down dropdown__icon'></i></a>
                     <div class="dropdown-content">
                         <a href="#">Disease Identifier</a>
-                        <a href="#">Crop Recommender</a>
-                        <a href="#">Plant Information</a>
+                        <a href="{{ url_for('crop_recommender') }}">Crop Recommender</a>
+                        <a href="{{url_for('plant_information')}}">Plant Information</a>
                     </div>
                 </li>
-                <li class="nav__item"><a class="nav__link" href="#">About Us</a></li>
+                <li class="nav__item"><a class="nav__link" href="{{ url_for('aboutus') }}">About Us</a></li>
                 <li class="nav__item"><a class="nav__link" href="#">Contact Us</a></li>
-                <li class="nav__item"><a class="nav__link" href="#">FAQs</a></li>
+                <li class="nav__item"><a class="nav__link" href="{{ url_for('faqs') }}">FAQs</a></li>
             </ul>
         </nav>
     </header>
@@ -345,7 +344,7 @@ ul {
   inset: auto 0 0;
   background-color: #24262b;
   padding: 70px 0;
-  z-index: 100;
+  z-index: -1;
 }
 
 .footer-col {
