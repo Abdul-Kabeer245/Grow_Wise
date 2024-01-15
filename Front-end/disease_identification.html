@@ -1,11 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% extends 'layout.html' %}
+{% block title %}
+    Disease Identification
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'Assets/styles/disease_identification.css')}}">
+<script src="{{ url_for('static', filename = 'Assets/scripts/disease_identification.js')}}"></script>
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="diseae-identification-container">    
+            <h1 id="page-heading">DISEASE IDENTIFICATION</h1>
+            <form id="disease-identification-form" method="post" enctype="multipart/form-data">
+                <div class="dropdown-div">
+                    <select name="plants" id="plants">
+                        <option value="default">Select a plant</option>
+                        <option value="apple">Apple</option>
+                        <option value="banana">Banana</option>
+                        <option value="cherry">Cherry</option>
+                        <option value="cotton">Cotton</option>
+                        <option value="grape">Grape</option>
+                        <option value="maize">Maize(Corn)</option>
+                        <option value="mango'">Mango'</option>
+                        <option value="peach">Peach</option>
+                        <option value="potato">Potato</option>
+                        <option value="pepper">Pepper</option>
+                        <option value="rice">Rice</option>
+                        <option value="soybean">Soybean</option>
+                        <option value="strawberry">Strawberry</option>
+                        <option value="tomato">Tomato</option>
+                        <option value="wheat">Wheat</option>
+                    </select>
+                </div>
+                <div class="upload-image-button">
+                    <input type="file" id="file-input" name="file-input">
+                    <label for="file-input" id="file-input-label">Upload Image</label>
+                </div>
+                <button id="submit-button" type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

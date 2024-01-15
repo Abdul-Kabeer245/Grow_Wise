@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Result
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'Assets/styles/disease_identification.css')}}">
+    <script src="{{ url_for('static', filename = 'Assets/scripts/disease_identification.js')}}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="identification-result-container">
+        <h3>This is the result page</h3>
+        <h2>Plant Name: {{ identification_data.plant_name }}</h2>
+        <h2>Disease Name: {{ identification_data.disease_name }}</h2>
+        <h2>Disease Description</h2>
+        <p>{{ identification_data.disease_descrption}}</p>
+        <h2>Cure</h2>
+        <p>{{ identification_data.cure_description }}</p>
+    </div>    
+{% endblock %}
