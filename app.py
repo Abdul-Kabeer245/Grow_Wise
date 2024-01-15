@@ -1,13 +1,31 @@
 from flask import Flask, render_template, request
+from prediction import load_and_classify, recommendation
 from flask_mysqldb import MySQL
-from prediction import recommendation
 
 
-app = Flask(__name__, template_folder="Front-end", static_url_path='/Front-end/Assets', static_folder='Front-end')
-#Home page
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/disease_identification', methods = ['GET', 'POST'])
+def disease_identification():
+    if request.method == 'POST':
+        selected_plant = request.form.get('plants')
+        uploaded_image = request.files['file-input']
+        model_name = models_list.get(selected_plant)
+        image_path = 'uploaded images/' + uploaded_image.filename
+        uploaded_image.save(image_path) 
+        if model_name:
+            class_label = load_and_classify(model_name, image_path)
+            if class_label != 'Healthy':
+                cursor = mysql.connection.cursor()
+                query = f"SELECT * FROM  diseaseidentification where plant_name = '{selected_plant}' and disease_name = '{class_label}'"
+                cursor.execute(query)
+                identification_data = cursor.fetchone()
+        return render_template('identification result.html', identification_data = identification_data, result = class_label)
+
+    return render_template('disease_identification.html')
 #Crop Recommender page
 @app.route('/crop_recommender')
 def crop_recommender():
