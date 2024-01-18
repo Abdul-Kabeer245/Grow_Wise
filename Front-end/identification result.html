@@ -4,18 +4,44 @@
 {% endblock %}
 
 {% block head %}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'Assets/styles/disease_identification.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'Assets/styles/identification result.css')}}">
     <script src="{{ url_for('static', filename = 'Assets/scripts/disease_identification.js')}}"></script>
 {% endblock %}
 
+
+
 {% block content %}
-    <div class="identification-result-container">
-        <h3>This is the result page</h3>
-        <h2>Plant Name: {{ identification_data.plant_name }}</h2>
-        <h2>Disease Name: {{ identification_data.disease_name }}</h2>
-        <h2>Disease Description</h2>
-        <p>{{ identification_data.disease_descrption}}</p>
-        <h2>Cure</h2>
-        <p>{{ identification_data.cure_description }}</p>
-    </div>    
+<section>
+    <h1>IDENTIFIED DISEASE & ITS CURE</h1>
+
+    
+    {% if identification_data %}
+    <div class="img">
+        <img src="{{ url_for('get_image', filename=usr_image) }}" alt="User image">
+        <p> <strong>Disease:</strong>{{ result }}</p>
+    </div>
+    
+    <div class="info">
+        <ul>
+            <li><strong>Disease Description:</strong> {{ identification_data.disease_description }}</li>
+            <li><strong>Cure:</strong> {{ identification_data.cure_description }}</li>
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if common_disease %}
+    <div class="img">
+        <img src="{{ url_for('get_image', filename=usr_image) }}" alt="User image">
+        <p> <strong>Your plant is healthy</strong> </p>
+      </div>
+    <div class="info">
+        <ul>
+            <li><strong>Disease Susceptibility:</strong> {{ common_disease.diseases_susceptibility }}</li>
+        </ul>
+    </div>
+    {% endif %}
+
+
+    <!-- <p><a href="/">Back to Home</a></p> -->
+</section>
 {% endblock %}

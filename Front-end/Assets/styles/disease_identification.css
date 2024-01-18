@@ -3,26 +3,44 @@
     padding: 0;
     font-family: 'Poppins';
 }
-section{
-    background-color: whitesmoke;
+section {
+    /* background-color: whitesmoke; */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
-}
+    height: 90vh;
+    /* Add the blur effect */
+    backdrop-filter: blur(500px);
+  }
+
+  
 .diseae-identification-container{
     text-align: center;
     width: 100%;
-    padding: 1em .5em;
+    padding: 25px 30px;
     max-width: 41em;
     background-color: white;
-    box-shadow: 0 0.1em 0.2em;
-    height: 40vh;
+    height: 50vh; 
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    transform: scale(1);
 }
 
-#page-heading{
+h1 {
+    margin-top: 10px;
     letter-spacing: 1.5px;
     padding: 1em;
+}
+ h1::before {
+    /* border: red solid 1px !important ; */
+    content: "";
+    position: absolute;
+    left: 25%;
+    bottom: 259px;
+    height: 2px;
+    width: 60px;
+    background: linear-gradient(135deg, #4CAF50, #4CAF50);
+    transform: translateX (-25%);
 }
 
 select, option {

@@ -13,11 +13,13 @@ section {
   padding: 10px;
   /* background: linear-gradient(50deg, #6a3a1d, #8BB33C); */
 
-  background-image:
-  /* linear-gradient(rgba(94, 173, 66, 0.5), rgba(94, 173, 66, 0.5)), */
+  /* background-image:
+  linear-gradient(rgba(94, 173, 66, 0.5), rgba(94, 173, 66, 0.5)),
   url('../images/card-img/card-img-1.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
+  backdrop-filter: blur(500px);
+  
   
 }
 .container1{

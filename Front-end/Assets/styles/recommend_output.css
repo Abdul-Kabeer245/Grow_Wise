@@ -27,12 +27,14 @@ h1::before {
   background: linear-gradient(135deg, #4CAF50, #4CAF50);
 }
 h2{
+   margin-top: 10px;
     text-align: center;
 }
 .info{
     
   margin-left: 300px;
   width: 60%;
+  margin-top: 20px;
   text-align: justify;
   /* padding-inline: 100px; */
 }

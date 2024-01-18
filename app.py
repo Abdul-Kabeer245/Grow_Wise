@@ -1,8 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 from prediction import load_and_classify, recommendation
 from flask_mysqldb import MySQL
+from PIL import Image
+import os
 
-app = Flask('_name_', template_folder = 'Front-end', static_folder='Front-end', static_url_path='/Front-end/Assets')
+app = Flask('_name_', template_folder='Front-end', static_folder='Front-end', static_url_path='/Front-end/Assets')
 
 #database
 app.config['MYSQL_HOST'] = 'localhost'
@@ -30,7 +32,6 @@ models_list={
     'wheat':'wheat_model'
 }
 
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -42,16 +43,34 @@ def disease_identification():
         uploaded_image = request.files['file-input']
         model_name = models_list.get(selected_plant)
         image_path = 'uploaded images/' + uploaded_image.filename
+        # uploaded_image = uploaded_image.resize((224, 224))
         uploaded_image.save(image_path) 
         if model_name:
             class_label = load_and_classify(model_name, image_path)
             if class_label != 'Healthy':
                 cursor = mysql.connection.cursor()
                 query = f"SELECT * FROM  diseaseidentification where plant_name = '{selected_plant}' and disease_name = '{class_label}'"
-                cursor.execute(query)
+                cursor.execute(query, )
                 identification_data = cursor.fetchone()
-        return render_template('identification result.html', identification_data = identification_data, result = class_label)
+                print("Image Path:", image_path)
+                print(class_label)
+   
+                return render_template('identification result.html', identification_data = identification_data, result = class_label, usr_image=uploaded_image.filename)
+            else:
+                class_label == "Healthy"
+                cursor = mysql.connection.cursor()
+                query = "SELECT diseases_susceptibility FROM plantinformation WHERE name=%s"
+                cursor.execute(query, (selected_plant,))
+                common_disease = cursor.fetchone()
+                cursor.close()
+                return render_template('identification result.html', common_disease=common_disease, Healthy=class_label, usr_image=uploaded_image.filename)
+
     return render_template('disease_identification.html')
+@app.route('/image/<filename>')
+def get_image(filename):
+    return send_from_directory('uploaded images', filename, mimetype='image/jpeg')
+
+
 
 
 #Crop Recommender page
@@ -86,11 +105,7 @@ def crop_recommender():
             print("Output Value:", output)
             return render_template('recommend_output.html', output=output, crop_data=crop_data)
         else:
-            return render_template('crop_recomender.html')
-        return render_template('crop_recommender.html')
-
-
-
+            return render_template('crop_recommender.html')
 
 @app.route('/plant_information', methods=['GET', 'POST'])
 def plant_information():
