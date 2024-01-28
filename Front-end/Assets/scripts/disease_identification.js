@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("disease-identification-form");
     const plantDropdown = document.getElementById("plants");
@@ -10,6 +11,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Add event listener for manual file selection
     fileInput.addEventListener('change', handleFileSelect);
+=======
+document.addEventListener("DOMContentLoaded", function()
+{
+    const form = document.getElementById("disease-identification-form");
+    const plantDropdown = document.getElementById("plants");
+    const fileInput = document.getElementById('file-input');
+>>>>>>> 4199c3d1252f90ed20901673469675ac452755e7
 
     form.addEventListener("submit", (event) => {
         if (plantDropdown.value === "default") {
@@ -20,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (fileInput.files.length === 0) {
             alert("Please upload an image.");
             event.preventDefault();
+<<<<<<< HEAD
         } else {
             const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
             if (!allowedExtensions.exec(fileInput.value)) {
@@ -70,4 +79,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         reader.readAsDataURL(file);
     }
+=======
+        }
+    });
+>>>>>>> 4199c3d1252f90ed20901673469675ac452755e7
 });

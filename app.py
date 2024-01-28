@@ -63,7 +63,11 @@ def disease_identification():
                 cursor.execute(query, (selected_plant,))
                 common_disease = cursor.fetchone()
                 cursor.close()
+<<<<<<< HEAD
                 return render_template('identification result.html', common_disease=common_disease, result=class_label, usr_image=uploaded_image.filename)
+=======
+                return render_template('identification result.html', common_disease=common_disease, Healthy=class_label, usr_image=uploaded_image.filename)
+>>>>>>> 4199c3d1252f90ed20901673469675ac452755e7
 
     return render_template('disease_identification.html')
 @app.route('/image/<filename>')
