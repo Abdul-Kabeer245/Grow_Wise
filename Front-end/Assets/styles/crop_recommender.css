@@ -13,17 +13,6 @@ section {
   padding: 10px;
   backdrop-filter: blur(500px);
 
-<<<<<<< HEAD
-=======
-  /* background-image:
-  linear-gradient(rgba(94, 173, 66, 0.5), rgba(94, 173, 66, 0.5)),
-  url('../images/card-img/card-img-1.jpg');
-  background-repeat: no-repeat;
-  background-size: cover; */
-  backdrop-filter: blur(500px);
-  
-  
->>>>>>> 4199c3d1252f90ed20901673469675ac452755e7
 }
 .container1{
   max-width: 700px;
@@ -134,6 +123,26 @@ form .user-details .input-box{
   }
   .user-details::-webkit-scrollbar{
     width: 5px;
+  }
+  form .last_input_box input{
+    margin-left: 0px;
+    width: 100%;
+  }
+  
+  form .button input{
+    margin-left: 100px;
+    width: 100px;
+  }
+
+  .container1 .title::before{
+    content: "";
+    position: absolute;
+    left: 2px;
+    bottom: 0;
+    height: 2px;
+    width: 60px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #4CAF50,#4CAF50);
   }
   }
   @media(max-width: 459px){

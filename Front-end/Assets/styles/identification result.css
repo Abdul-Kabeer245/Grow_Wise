@@ -8,7 +8,6 @@
 
 
 /* ===== Custom Styling ===== */
-<<<<<<< HEAD
 section {
   letter-spacing: 1.5px;
   display: flex;
@@ -17,12 +16,6 @@ section {
   text-align: center; /* Center text content */
   margin-top: 20px;
   margin-bottom: 70px;
-=======
-section{
-  letter-spacing: 1.5px;
-  min-height: 50vh;
-  margin-bottom: 50px;
->>>>>>> 4199c3d1252f90ed20901673469675ac452755e7
 }
 
 h1{
@@ -34,15 +27,10 @@ h1{
 h1::before {
   content: "";
   position: absolute;
-<<<<<<< HEAD
-=======
-  left: 36.5%;
->>>>>>> 4199c3d1252f90ed20901673469675ac452755e7
   bottom: 0;
   height: 2px;
   width: 60px;
   background: linear-gradient(135deg, #4CAF50, #4CAF50);
-<<<<<<< HEAD
   /* transform: translateX (-36.5%); */
 }
 .user-image {
@@ -52,47 +40,20 @@ h1::before {
 
 .img{
   text-align: center;
-=======
-  transform: translateX (-36.5%);
-}
-.img{
-  display: flex;
-  width: 60%;
-  text-align: justify;
->>>>>>> 4199c3d1252f90ed20901673469675ac452755e7
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
 }
-<<<<<<< HEAD
 .info {
   width: 60%;
   text-align: justify;
   margin-top:10px;
-=======
-
-p{
-  margin-top: 90px;
-  margin-left: 40px;
-  float: right;
-  
-}
-.info {
-  width: 60%;
-  text-align: justify;
-  margin-top: 10px;
->>>>>>> 4199c3d1252f90ed20901673469675ac452755e7
   margin-left: auto;
   margin-right: auto;
 }
 
-<<<<<<< HEAD
 ul li{
   margin-top: 10px;
-=======
-.info ul li{
-  margin-top: 5px;
->>>>>>> 4199c3d1252f90ed20901673469675ac452755e7
 
 }
 a{

@@ -31,7 +31,6 @@ section {
   width: 60px;
   background: linear-gradient(135deg, #4CAF50, #4CAF50);
 }
-<<<<<<< HEAD
 
 .icon-list li {
    list-style-type: none;
@@ -41,21 +40,6 @@ section {
   
 .info {
   letter-spacing: 1.5px;
-=======
-h2{
-   margin-top: 10px;
-    text-align: center;
-}
-.info{
-    
-  margin-left: 300px;
-  width: 60%;
-  margin-top: 20px;
-  text-align: justify;
-  /* padding-inline: 100px; */
-}
-.info ul li{
->>>>>>> 4199c3d1252f90ed20901673469675ac452755e7
   margin-top: 5px;
   text-align: justify;
   width: 60%; /* Adjust width as needed */
@@ -68,5 +52,3 @@ h2{
 a {
   text-decoration: none;
 }
-
-
